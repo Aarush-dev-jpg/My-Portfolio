@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080b10" />
+  <meta name="description" content="Aarush R P — AI Developer & Application Developer portfolio." />
+  <title>AARUSH R P // JARVIS CONSOLE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <link rel="stylesheet" href="flight.css" />
+  <link rel="stylesheet" href="flight-enhance.css" />
+  <link rel="stylesheet" href="pages.css" />
+  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="page-scroll.css" />
+  <link rel="stylesheet" href="profile.css" />
+  <link rel="stylesheet" href="profile-spacing.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <div class="boot-screen" id="bootScreen" aria-label="System startup">
+    <div class="boot-orbit"></div>
+    <div class="boot-copy">
+      <span class="eyebrow">AARUSH R P / PERSONAL SYSTEM</span>
+      <strong>INITIALIZING<br /><em>JARVIS</em></strong>
+      <div class="boot-progress"><i id="bootProgress"></i></div>
+      <span class="boot-status" id="bootStatus">CALIBRATING INTERFACE...</span>
+    </div>
+  </div>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Aarush home"><span class="brand-mark">AR</span><span>PORTFOLIO<span class="accent">.SYS</span></span></a>
+      <div class="system-readout"><span class="status-dot"></span><span>SYSTEMS ONLINE</span><span class="readout-divider">//</span><span id="clock">00:00:00</span></div>
+      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false" title="Enable JARVIS system sounds"><span class="sound-icon">◌</span> AUDIO OFF</button>
+    </header>
+    <nav class="page-nav" aria-label="Portfolio pages">
+      <span class="page-nav-label">NAV // ZONES</span>
+      <button class="page-nav-item active" type="button" data-page-target="#home" data-flight="HOME NODE">01 HOME</button>
+      <button class="page-nav-item" type="button" data-page-target="#about" data-flight="PROFILE NODE">02 PROFILE</button>
+      <button class="page-nav-item" type="button" data-page-target="#projects" data-flight="PROJECTS NODE">03 WORK</button>
+      <button class="page-nav-item" type="button" data-page-target="#stack" data-flight="SYSTEMS NODE">04 SYSTEMS</button>
+      <button class="page-nav-item" type="button" data-page-target="#game" data-flight="SIMULATION NODE">05 PLAYFIELD</button>
+      <button class="page-nav-item" type="button" data-page-target="#contact" data-flight="CONTACT NODE">06 CONTACT</button>
+    </nav>
+
+    <main id="top">
+      <section class="hero section-grid page-panel active home-fit" id="home">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="pulse"></span> AI DEVELOPER / APPLICATION DEVELOPER</div>
+          <h1>BUILDING<br /><span>THE NEXT</span><br />ITERATION.</h1>
+          <p class="hero-intro">I’m Aarush. I turn ambitious ideas into useful digital experiences with code, AI, and an unreasonable curiosity for how things work.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects" data-sound data-flight="PROJECTS NODE">ACCESS PROJECTS <span>↘</span></a>
+            <a class="button button-quiet" href="#about" data-sound data-flight="PROFILE NODE">READ PROFILE <span>→</span></a>
+          </div>
+          <div class="hero-meta"><span>AVAILABLE FOR<br /><b>COLLABORATION</b></span><span>BASED IN<br /><b>KERALA, INDIA</b></span><span>MODE<br /><b>ALWAYS LEARNING</b></span></div>
+        </div>
+        <div class="reactor-wrap reveal reveal-delay" aria-label="Interactive system core">
+          <div class="reactor-label"><span>CORE // 01</span><span>STABLE</span></div>
+          <div class="reactor">
+            <div class="reactor-ring ring-a"></div><div class="reactor-ring ring-b"></div><div class="reactor-ring ring-c"></div>
+            <div class="reactor-cross"></div><div class="reactor-core"><span>AR</span></div>
+            <div class="reactor-caption">ARC INTERFACE<br /><strong>ONLINE</strong></div>
+          </div>
+          <div class="reactor-foot"><span>OUTPUT: 100%</span><span>V 2026.09</span></div>
+        </div>
+      </section>
+
+      <section class="marquee" aria-label="Skills ticker"><div>AI-ASSISTED DEVELOPMENT <b>✦</b> PROMPT ENGINEERING <b>✦</b> RESPONSIVE WEB SYSTEMS <b>✦</b> DEBUGGING &amp; TROUBLESHOOTING <b>✦</b> AI-ASSISTED DEVELOPMENT <b>✦</b></div></section>
+
+      <section class="content-section section-grid page-panel" id="about">
+        <div class="section-index">01 / PROFILE</div>
+        <div class="section-body about-layout"><div class="about-copy"><h2>Human<br /><span>behind the</span><br />interface.</h2><p class="large-copy">A B.Tech student and aspiring web developer exploring the overlap between practical software and intelligent tools.</p><p>I build with a bias toward action: shape an idea, make it real, find the bug, learn the missing piece, and ship the next version. My current toolkit combines responsive frontend work, REST APIs, AI integration, automation, and prompt-based development.</p><div class="signature">AARUSH R P <span>// KEEP MOVING FORWARD</span></div></div><div class="id-wrap" id="id-scan"><div class="id-frame"><img class="id-photo" src="aarush-photo.jpg.png" alt="Aarush R P profile photo" /><div class="id-scanline"></div><div class="id-noise"></div></div><div class="id-readout"><span id="id-readout-text"></span><span class="cursor2">▌</span></div></div></div>
+      </section>
+
+      <section class="content-section section-grid page-panel" id="projects">
+        <div class="section-index">02 / SELECTED WORK</div>
+        <div class="section-body"><div class="section-heading"><h2>Proof of<br /><span>concept.</span></h2><span class="section-note">04 PROJECT NODES / LIVE IDEAS</span></div><div class="project-list">
+          <article class="project-card featured" data-project="nammal"><div class="project-number">01</div><div class="project-info"><span class="project-type">COMMUNITY / AI PLATFORM</span><h3><a href="https://github.com/Aarush-dev-jpg/NAMMAL" target="_blank" rel="noreferrer">NAMMAL</a></h3><p>Intelligent community decision-making, designed to turn many voices into a clearer next step.</p><div class="tags"><span>AI</span><span>WEB APP</span><span>GITHUB</span><span class="project-status completed">COMPLETED</span></div></div><div class="project-visual visual-nammal"><span class="visual-orbit"></span><span class="visual-word">N</span><span class="visual-label">PUBLIC NODE<br /><b>ACTIVE</b></span></div><span class="project-arrow">↗</span></article>
+          <article class="project-card" data-project="recipe"><div class="project-number">02</div><div class="project-info"><span class="project-type">AI / FOOD DISCOVERY</span><h3><a href="https://github.com/Aarush-dev-jpg/Recipe-AI" target="_blank" rel="noreferrer">RECIPE AI</a></h3><p>Ingredient-aware recommendations that make meal planning feel less like a task.</p><div class="tags"><span>API</span><span>AI</span><span>UI</span><span class="project-status completed">COMPLETED</span></div></div><div class="project-visual visual-recipe"><span class="recipe-sun"></span><span class="visual-label">INPUT →<br /><b>IDEA</b></span></div><span class="project-arrow">↗</span></article>
+          <article class="project-card" data-project="commerce"><div class="project-number">03</div><div class="project-info"><span class="project-type">MOBILE / COMMERCE</span><h3>E-Commerce App</h3><p>This is a demo e-commerce mobile app for buying and managing products in a clean, user-friendly storefront experience.</p><div class="tags"><span>MOBILE</span><span>STORE</span><span>UX</span><span class="project-status ongoing">ONGOING</span></div></div><div class="project-visual visual-health"><span class="heartbeat">◌</span><span class="visual-label">SHOPPING<br /><b>FLOW</b></span></div><span class="project-arrow">↗</span></article>
+          <article class="project-card" data-project="campkart"><div class="project-number">04</div><div class="project-info"><span class="project-type">MARKETPLACE / STUDENT LIFE</span><h3>CAMPKART</h3><p>A college-exclusive marketplace to buy, sell, and exchange products.</p><div class="tags"><span>PRODUCT</span><span>UX</span><span>WEB</span><span class="project-status ongoing">ONGOING</span></div></div><div class="project-visual visual-campkart"><span class="cart-shape">+</span><span class="visual-label">CAMPUS<br /><b>CONNECTED</b></span></div><span class="project-arrow">↗</span></article>
+        </div></div>
+      </section>
+
+      <section class="content-section section-grid page-panel" id="stack"><div class="section-index">03 / SYSTEMS</div><div class="section-body stack-layout"><div><h2>Tools for<br /><span>the mission.</span></h2><p class="stack-intro">A growing stack, chosen for getting from blank page to working system.</p></div><div class="skill-matrix"><div><span class="skill-count">01</span><h3>BUILD</h3><p>HTML / CSS / JavaScript<br />Python / REST APIs / OpenAPI</p></div><div><span class="skill-count">02</span><h3>THINK</h3><p>AI Integration<br />Prompt Engineering / Debugging</p></div><div><span class="skill-count">03</span><h3>CONNECT</h3><p>Git / GitHub / Vercel<br />n8n / Node-RED / ThingsBoard</p></div><div><span class="skill-count">04</span><h3>LEARN</h3><p>Communication / Teamwork<br />Adaptability / Curiosity</p></div></div></div></section>
+
+      <section class="content-section section-grid page-panel" id="game">
+        <div class="section-index">04 / PLAYFIELD</div>
+        <div class="section-body game-layout">
+          <div class="section-heading">
+            <h2>Mission<br /><span>simulation.</span></h2>
+            <span class="section-note">01 LIVE DEMO / INTERACTIVE</span>
+          </div>
+          <div class="game-console">
+            <div class="game-header">
+              <div class="game-status"><span class="status-dot"></span>JARVIS SIM</div>
+              <div class="game-score"><span>SCORE</span><strong id="gameScore">0</strong></div>
+              <div class="game-timer"><span>TIME</span><strong id="gameTimer">30</strong></div>
+            </div>
+            <div class="game-arena" id="gameArena" aria-label="Interactive JARVIS target game">
+              <div class="game-core"><span>AR</span></div>
+            </div>
+            <div class="game-controls">
+              <button type="button" id="gameStart" class="button button-primary">START SIMULATION</button>
+              <button type="button" id="gameReset" class="button button-quiet">RESET</button>
+            </div>
+            <div class="game-message" id="gameMessage">SYSTEM READY // CLICK START</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section page-panel" id="contact"><div class="contact-grid"><div class="section-index">05 / OPEN CHANNEL</div><div><h2>Got a signal?<br /><span>Send it over.</span></h2><p>For a project, a collaboration, or a good technical problem.</p><a class="contact-link" href="mailto:rpaarush@gmail.com" data-sound>RPAARUSH@GMAIL.COM <span>↗</span></a><div class="social-links"><a href="https://www.linkedin.com/in/aarush-r-p-230157331/" target="_blank" rel="noreferrer">LINKEDIN ↗</a><a href="https://github.com/devikam835-sketch" target="_blank" rel="noreferrer">GITHUB ↗</a></div></div></div></section>
+    </main>
+
+    <footer><span>© 2026 AARUSH R P</span><span>DESIGNED FOR THE NEXT ITERATION</span><span>END OF TRANSMISSION // <a href="#top" data-flight="HOME NODE">BACK TO TOP ↑</a></span></footer>
+  </div>
+  <div class="flight-overlay" id="flightOverlay" aria-hidden="true">
+    <div class="flight-grid"></div>
+    <div class="flight-pilot" aria-hidden="true">
+      <div class="pilot-helmet"><span></span></div>
+      <div class="pilot-body"><i class="pilot-core">AR</i><b></b></div>
+      <div class="pilot-arm pilot-arm-left"></div><div class="pilot-arm pilot-arm-right"></div>
+      <div class="pilot-jet pilot-jet-left"></div><div class="pilot-jet pilot-jet-right"></div>
+    </div>
+    <div class="flight-core"><span>AR</span></div>
+    <div class="flight-lines"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="flight-readout"><span class="status-dot"></span>JARVIS NAVIGATION</div>
+    <strong id="flightDestination">DESTINATION LOCKED</strong>
+    <small>ENGAGING TRANSIT VECTOR // STANDBY</small>
+  </div>
+  <div class="jarvis-reader" id="jarvisReader" aria-live="polite">
+    <div class="reader-topline"><span class="status-dot"></span>JARVIS READER</div>
+    <div class="reader-state" id="readerState">VOICE LINK STANDBY</div>
+    <div class="reader-controls">
+      <button type="button" id="readerPause" title="Pause or resume JARVIS">PAUSE</button>
+      <button type="button" id="readerStop" title="Stop JARVIS">STOP</button>
+    </div>
+  </div>
+  <div class="selection-popover" id="selectionPopover">
+    <button type="button" id="readSelection"><span>◉</span> JARVIS // READ</button>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>

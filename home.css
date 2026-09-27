@@ -1,0 +1,37 @@
+/* Home panel fit: preserve the full hero composition inside one viewport. */
+.home-fit{padding-top:28px!important;padding-bottom:54px!important;align-items:center!important}
+.home-fit .hero-copy{min-width:0;z-index:1}
+.home-fit .hero h1{font-size:clamp(64px,8.2vw,126px)}
+.home-fit .hero-intro{margin-top:22px;margin-bottom:20px;line-height:1.6}
+.home-fit .hero-meta{margin-top:38px}
+.home-fit .reactor-wrap{height:min(66vh,500px);min-height:390px;z-index:1}
+.home-fit .reactor{width:min(32vw,430px);height:min(32vw,430px);min-width:300px;min-height:300px}
+.home-fit .marquee{bottom:0}
+
+@media (min-width:801px) and (max-height:850px){
+  .home-fit{padding-top:20px!important;padding-bottom:48px!important}
+  .home-fit .hero h1{font-size:clamp(58px,7.5vw,96px)}
+  .home-fit .hero-intro{margin-top:16px;margin-bottom:14px;line-height:1.45}
+  .home-fit .hero-meta{margin-top:24px}
+  .home-fit .reactor-wrap{height:calc(100vh - 240px);min-height:300px}
+  .home-fit .reactor{width:min(28vw,340px);height:min(28vw,340px);min-width:260px;min-height:260px}
+}
+
+@media (max-width:800px){
+  .home-fit{padding-top:22px!important;padding-bottom:34px!important}
+  .home-fit .hero h1{font-size:clamp(54px,16vw,84px)}
+  .home-fit .hero-intro{margin-top:16px;margin-bottom:14px;line-height:1.4}
+  .home-fit .hero-meta{margin-top:20px}
+  .home-fit .reactor-wrap{height:220px;min-height:0}
+  .home-fit .reactor{width:min(52vw,220px);height:min(52vw,220px);min-width:180px;min-height:180px}
+  .home-fit .reactor-caption{font-size:7px}
+}
+
+@media (max-width:420px){
+  .home-fit{padding-top:12px!important;padding-bottom:26px!important}
+  .home-fit .hero h1{font-size:51px}
+  .home-fit .hero-intro{font-size:9px}
+  .home-fit .hero-meta{margin-top:14px}
+  .home-fit .reactor-wrap{height:170px}
+  .home-fit .reactor{width:170px;height:170px;min-width:150px;min-height:150px}
+}

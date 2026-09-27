@@ -1,0 +1,3 @@
+.id-wrap{margin-top:28px}
+@media(max-width:800px){.id-wrap{margin-top:14px}}
+@media(max-width:420px){.id-wrap{margin-top:10px}}

@@ -1,0 +1,3 @@
+@keyframes pilotLaunch{0%{opacity:0;transform:translate(-50%,30vh) scale(.18) rotate(-8deg)}18%{opacity:1}62%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}100%{opacity:0;transform:translate(-50%,-72vh) scale(.22) rotate(6deg)}}
+@media(max-width:800px){.flight-pilot{transform:translate(-50%,-50%) scale(.78)}.launch .flight-pilot{animation-name:pilotLaunchMobile}.flight-core{width:70px;height:70px}.flight-core span{font-size:12px}}
+@keyframes pilotLaunchMobile{0%{opacity:0;transform:translate(-50%,30vh) scale(.12) rotate(-8deg)}18%{opacity:1}62%{opacity:1;transform:translate(-50%,-50%) scale(.78) rotate(0)}100%{opacity:0;transform:translate(-50%,-72vh) scale(.16) rotate(6deg)}}

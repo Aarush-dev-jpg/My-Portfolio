@@ -1,0 +1,25 @@
+/* Page-local scrolling: Home stays cinematic, content zones stay complete. */
+.page-panel{overflow-y:auto!important;overflow-x:hidden!important;scrollbar-width:thin;scrollbar-color:var(--cyan-dim) transparent;overscroll-behavior:contain}
+.page-panel::-webkit-scrollbar{width:6px}
+.page-panel::-webkit-scrollbar-track{background:transparent}
+.page-panel::-webkit-scrollbar-thumb{background:var(--cyan-dim);border-radius:0}
+.page-panel .section-body{overflow:visible;min-height:0;padding-bottom:34px}
+.page-panel .section-index{position:sticky;top:0;align-self:start;padding-top:4px;background:linear-gradient(var(--bg) 78%,transparent);z-index:2}
+#projects.page-panel .project-list{max-height:none;overflow:visible}
+#projects.page-panel .project-card{min-height:150px}
+#stack.page-panel .skill-matrix{padding-bottom:24px}
+#contact.page-panel.active{display:grid!important;padding-top:72px;padding-bottom:90px}
+#contact.page-panel.active .contact-grid{min-height:calc(100% - 40px);align-items:center}
+@media(max-width:800px){
+  .page-panel{padding-top:86px!important;padding-bottom:54px!important}
+  .page-panel .section-index{position:sticky;top:-1px;padding-top:4px;padding-bottom:14px}
+  .page-panel .section-body{padding-bottom:28px}
+  #projects.page-panel .project-card{min-height:0;height:auto;padding:16px 0}
+  #stack.page-panel .skill-matrix{padding-bottom:16px}
+  #contact.page-panel.active{padding-top:86px;padding-bottom:70px}
+  #contact.page-panel.active .contact-grid{min-height:0;align-items:start}
+}
+@media(max-width:420px){
+  .page-panel:not(#home){padding-top:78px!important}
+  #contact.page-panel.active{padding-top:78px}
+}
