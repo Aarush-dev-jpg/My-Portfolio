@@ -14,7 +14,7 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-let audioEnabled = false;
+let audioEnabled = true;
 let audioContext;
 function playTone(frequency = 440, duration = 0.08, type = 'sine') {
   if (!audioEnabled) return;
@@ -532,11 +532,33 @@ if (gameReset) {
 
 const flightOverlay = document.querySelector('#flightOverlay');
 const flightDestination = document.querySelector('#flightDestination');
+const pageNav = document.querySelector('.page-nav');
+const marquee = document.querySelector('.marquee');
 let flightInProgress = false;
+const panelScrollPositions = new WeakMap();
+
+function updateZoneNav(panel) {
+  const currentScroll = panel.scrollTop;
+  const previousScroll = panelScrollPositions.get(panel) ?? 0;
+  const movingDown = currentScroll > previousScroll + 2;
+  const movingUp = currentScroll < previousScroll - 2;
+  panelScrollPositions.set(panel, currentScroll);
+
+  if (currentScroll <= 8 || movingUp) pageNav.classList.remove('nav-hidden');
+  else if (movingDown) pageNav.classList.add('nav-hidden');
+}
+
+document.querySelectorAll('.page-panel').forEach((panel) => {
+  panelScrollPositions.set(panel, panel.scrollTop);
+  panel.addEventListener('scroll', () => updateZoneNav(panel), { passive: true });
+});
 
 function activatePage(target) {
   document.querySelectorAll('.page-panel').forEach((panel) => panel.classList.toggle('active', panel === target));
   document.querySelectorAll('.page-nav-item').forEach((item) => item.classList.toggle('active', item.dataset.pageTarget === `#${target.id}`));
+  marquee.classList.toggle('marquee-hidden', target.id !== 'home');
+  pageNav.classList.remove('nav-hidden');
+  panelScrollPositions.set(target, target.scrollTop);
 }
 
 document.querySelectorAll('[data-flight]').forEach((link) => {
@@ -562,8 +584,8 @@ document.querySelectorAll('[data-flight]').forEach((link) => {
       setTimeout(() => {
         flightOverlay.classList.remove('arrival');
         flightInProgress = false;
-      }, 520);
-    }, 620);
+      }, 300);
+    }, 550);
   });
 });
 
