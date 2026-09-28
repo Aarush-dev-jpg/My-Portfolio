@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#080b10" />
   <meta name="description" content="Aarush R P — AI Developer & Application Developer portfolio." />
-  <title>AARUSH R P // JARVIS CONSOLE</title>
+  <title>A.T.L.A.S. // PERSONAL INTERFACE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -28,7 +28,7 @@
     <div class="boot-orbit"></div>
     <div class="boot-copy">
       <span class="eyebrow">AARUSH R P / PERSONAL SYSTEM</span>
-      <strong>INITIALIZING<br /><em>JARVIS</em></strong>
+      <strong>INITIALIZING<br /><em>ATLAS</em></strong>
       <div class="boot-progress"><i id="bootProgress"></i></div>
       <span class="boot-status" id="bootStatus">CALIBRATING INTERFACE...</span>
     </div>
@@ -38,7 +38,7 @@
     <header class="topbar">
       <a class="brand" href="#top" aria-label="Aarush home"><span class="brand-mark">AR</span><span>PORTFOLIO<span class="accent">.SYS</span></span></a>
       <div class="system-readout"><span class="status-dot"></span><span>SYSTEMS ONLINE</span><span class="readout-divider">//</span><span id="clock">00:00:00</span></div>
-      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="true" title="Disable JARVIS system sounds"><span class="sound-icon">◉</span> AUDIO ON</button>
+      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="true" title="Disable ATLAS system sounds"><span class="sound-icon">◉</span> AUDIO ON</button>
     </header>
     <nav class="page-nav" aria-label="Portfolio pages">
       <span class="page-nav-label">NAV // ZONES</span>
@@ -46,7 +46,7 @@
       <button class="page-nav-item" type="button" data-page-target="#about" data-flight="PROFILE NODE">02 PROFILE</button>
       <button class="page-nav-item" type="button" data-page-target="#projects" data-flight="PROJECTS NODE">03 WORK</button>
       <button class="page-nav-item" type="button" data-page-target="#stack" data-flight="SYSTEMS NODE">04 SYSTEMS</button>
-      <button class="page-nav-item" type="button" data-page-target="#game" data-flight="SIMULATION NODE">05 PLAYFIELD</button>
+      <button class="page-nav-item" type="button" data-page-target="#game" data-flight="ATLAS NODE">05 ATLAS</button>
       <button class="page-nav-item" type="button" data-page-target="#contact" data-flight="CONTACT NODE">06 CONTACT</button>
     </nav>
 
@@ -93,19 +93,29 @@
       <section class="content-section section-grid page-panel" id="stack"><div class="section-index">03 / SYSTEMS</div><div class="section-body stack-layout"><div><h2>Tools for<br /><span>the mission.</span></h2><p class="stack-intro">A growing stack, chosen for getting from blank page to working system.</p></div><div class="skill-matrix"><div><span class="skill-count">01</span><h3>BUILD</h3><p>HTML / CSS / JavaScript<br />Python / REST APIs / OpenAPI</p></div><div><span class="skill-count">02</span><h3>THINK</h3><p>AI Integration<br />Prompt Engineering / Debugging</p></div><div><span class="skill-count">03</span><h3>CONNECT</h3><p>Git / GitHub / Vercel<br />n8n / Node-RED / ThingsBoard</p></div><div><span class="skill-count">04</span><h3>LEARN</h3><p>Communication / Teamwork<br />Adaptability / Curiosity</p></div></div></div></section>
 
       <section class="content-section section-grid page-panel" id="game">
-        <div class="section-index">04 / PLAYFIELD</div>
+        <div class="section-index">04 / ATLAS</div>
         <div class="section-body game-layout">
           <div class="section-heading">
             <h2>Mission<br /><span>simulation.</span></h2>
             <span class="section-note">01 LIVE DEMO / INTERACTIVE</span>
           </div>
           <div class="game-console">
+            <div class="atlas-command-panel">
+              <div class="atlas-command-label"><span class="status-dot"></span>A.T.L.A.S. CORE // ONLINE</div>
+              <p id="atlasWelcome"></p>
+              <div id="atlasConversation" class="atlas-conversation" aria-live="polite"></div>
+              <form id="atlasCommandForm" class="atlas-command-form">
+                <input id="atlasCommand" type="text" placeholder="Enter a command for ATLAS...." autocomplete="off" />
+                <button type="submit" class="button button-quiet">TRANSMIT <span>↗</span></button>
+              </form>
+              <div id="atlasResponse" class="atlas-response" aria-live="polite">ATLAS READY // AWAITING COMMAND</div>
+            </div>
             <div class="game-header">
-              <div class="game-status"><span class="status-dot"></span>JARVIS SIM</div>
+              <div class="game-status"><span class="status-dot"></span>ATLAS SIM</div>
               <div class="game-score"><span>SCORE</span><strong id="gameScore">0</strong></div>
               <div class="game-timer"><span>TIME</span><strong id="gameTimer">30</strong></div>
             </div>
-            <div class="game-arena" id="gameArena" aria-label="Interactive JARVIS target game">
+            <div class="game-arena" id="gameArena" aria-label="Interactive ATLAS target game">
               <div class="game-core"><span>AR</span></div>
             </div>
             <div class="game-controls">
@@ -132,20 +142,20 @@
     </div>
     <div class="flight-core"><span>AR</span></div>
     <div class="flight-lines"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    <div class="flight-readout"><span class="status-dot"></span>JARVIS NAVIGATION</div>
+    <div class="flight-readout"><span class="status-dot"></span>ATLAS NAVIGATION</div>
     <strong id="flightDestination">DESTINATION LOCKED</strong>
     <small>ENGAGING TRANSIT VECTOR // STANDBY</small>
   </div>
-  <div class="jarvis-reader" id="jarvisReader" aria-live="polite">
-    <div class="reader-topline"><span class="status-dot"></span>JARVIS READER</div>
+  <div class="atlas-reader" id="atlasReader" aria-live="polite">
+    <div class="reader-topline"><span class="status-dot"></span>ATLAS READER</div>
     <div class="reader-state" id="readerState">VOICE LINK STANDBY</div>
     <div class="reader-controls">
-      <button type="button" id="readerPause" title="Pause or resume JARVIS">PAUSE</button>
-      <button type="button" id="readerStop" title="Stop JARVIS">STOP</button>
+      <button type="button" id="readerPause" title="Pause or resume ATLAS">PAUSE</button>
+      <button type="button" id="readerStop" title="Stop ATLAS">STOP</button>
     </div>
   </div>
   <div class="selection-popover" id="selectionPopover">
-    <button type="button" id="readSelection"><span>◉</span> JARVIS // READ</button>
+    <button type="button" id="readSelection"><span>◉</span> ATLAS // READ</button>
   </div>
   <div class="toast" id="toast" role="status"></div>
   <script src="script.js"></script>

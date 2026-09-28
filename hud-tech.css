@@ -7,7 +7,7 @@
 
 body{background:radial-gradient(circle at 52% 8%,rgba(21,62,70,.18),transparent 32%),var(--bg)}
 body:before,body:after{position:fixed;z-index:6;pointer-events:none;color:var(--cyan);font:8px var(--mono);letter-spacing:.16em;opacity:.52;writing-mode:vertical-rl}
-body:before{content:'JARVIS // SYSTEM TELEMETRY // 07.3';left:12px;top:50%;transform:translateY(-50%) rotate(180deg)}
+body:before{content:'ATLAS // SYSTEM TELEMETRY // 07.3';left:12px;top:50%;transform:translateY(-50%) rotate(180deg)}
 body:after{content:'ARC NETWORK // ONLINE // SECURE';right:12px;top:50%;transform:translateY(-50%)}
 
 .app-shell{position:relative}
@@ -44,7 +44,7 @@ body:after{content:'ARC NETWORK // ONLINE // SECURE';right:12px;top:50%;transfor
 .marquee.marquee-hidden{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(100%);transition:opacity .28s ease,transform .38s ease,visibility .38s}
 main:has(.page-panel:not(#home).active)>.marquee{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(100%)}
 .content-section,.contact-section{position:relative}.section-index{position:relative;color:var(--cyan);text-shadow:0 0 10px rgba(77,225,221,.25)}.section-index:after{content:' REC';color:var(--red);font-size:7px;margin-left:10px;animation:hudBlink 1.8s steps(2,end) infinite}
-.section-body{position:relative}.section-body:before{content:'JARVIS / DATA STREAM';position:absolute;right:0;top:-24px;color:rgba(137,148,155,.6);font-size:7px;letter-spacing:.16em}
+.section-body{position:relative}.section-body:before{content:'ATLAS / DATA STREAM';position:absolute;right:0;top:-24px;color:rgba(137,148,155,.6);font-size:7px;letter-spacing:.16em}
 .content-section h2,.contact-section h2{position:relative}.content-section h2:after,.contact-section h2:after{content:'';display:block;width:44px;height:3px;margin-top:21px;background:var(--red);box-shadow:0 0 12px rgba(237,75,56,.55)}
 .project-list,.skill-matrix{position:relative;border-top-color:rgba(77,225,221,.42)}
 .project-card{background:linear-gradient(90deg,transparent,rgba(77,225,221,.018));border-bottom-color:rgba(77,225,221,.18)}.project-card:before{background:linear-gradient(90deg,rgba(77,225,221,.09),rgba(77,225,221,.02) 70%,transparent);border-left:2px solid var(--cyan)}.project-card:after{content:'TARGET LOCKED // 01';text-shadow:0 0 8px var(--cyan)}
@@ -53,11 +53,15 @@ main:has(.page-panel:not(#home).active)>.marquee{opacity:0;visibility:hidden;poi
 .skill-matrix>div{border-bottom-color:rgba(77,225,221,.18)}.skill-matrix h3{color:var(--ink);text-shadow:0 0 10px rgba(77,225,221,.12)}.skill-matrix>div:hover{background:linear-gradient(135deg,rgba(77,225,221,.07),transparent 70%)}
 .skill-matrix p:before{content:'>';color:var(--red);margin-right:7px}
 .id-frame,.game-console{box-shadow:inset 0 0 24px rgba(77,225,221,.08),0 0 24px rgba(0,0,0,.25)}
+.atlas-command-panel{position:relative;margin-bottom:18px;padding:16px;border:1px solid rgba(77,225,221,.28);background:linear-gradient(135deg,rgba(77,225,221,.07),rgba(8,15,20,.5));box-shadow:inset 0 0 22px rgba(77,225,221,.05)}
+.atlas-command-panel:before{content:'ATLAS / PERSONAL AI INTERFACE';position:absolute;right:12px;top:10px;color:var(--red);font-size:7px;letter-spacing:.12em}
+.atlas-command-label{color:var(--cyan);font-size:9px;letter-spacing:.14em}.atlas-command-panel p{max-width:700px;margin:14px 0;color:var(--ink);font-size:11px;line-height:1.7}.atlas-conversation{display:grid;gap:7px;max-height:170px;overflow-y:auto;margin:12px 0;padding-right:5px;scrollbar-width:thin;scrollbar-color:var(--cyan-dim) transparent}.atlas-message{padding:8px 10px;border-left:2px solid var(--cyan);background:rgba(77,225,221,.045);color:var(--ink);font-size:9px;line-height:1.55}.atlas-message-user{border-left-color:var(--red);color:var(--muted)}.atlas-command-form{display:flex;gap:8px}.atlas-command-form input{min-width:0;flex:1;color:var(--cyan);font:10px var(--mono);letter-spacing:.04em;background:rgba(3,10,14,.72);border:1px solid var(--cyan-dim);padding:12px 13px;outline:none}.atlas-command-form input:focus{border-color:var(--cyan);box-shadow:0 0 16px rgba(77,225,221,.15)}.atlas-command-form button{padding:10px 14px}.atlas-response{margin-top:10px;color:var(--muted);font-size:8px;letter-spacing:.1em}
 .contact-section{background:radial-gradient(circle at 76% 42%,rgba(77,225,221,.1),transparent 27%),linear-gradient(110deg,rgba(77,225,221,.08),transparent 50%),#0b1116}.contact-link{text-shadow:0 0 16px rgba(77,225,221,.25)}
 .contact-link:hover{color:#c4fffb;text-shadow:0 0 18px var(--cyan)}.social-links a{position:relative}.social-links a:before{content:'↳';color:var(--red);margin-right:6px}
 .toast{clip-path:polygon(0 0,96% 0,100% 25%,100% 100%,4% 100%,0 75%);box-shadow:0 0 20px rgba(77,225,221,.22)}
+.atlas-reader{position:fixed;right:24px;bottom:24px;width:235px;padding:14px;background:rgba(10,18,24,.94);border:1px solid var(--cyan-dim);box-shadow:0 0 24px rgba(77,225,221,.1);z-index:8;opacity:0;transform:translateY(20px);pointer-events:none;transition:.3s}.atlas-reader.active{opacity:1;transform:none;pointer-events:auto}
 
 @keyframes hudPulse{50%{opacity:.35;transform:scaleX(.55)}}
 @keyframes hudBlink{50%{opacity:.2}}@keyframes reactorHover{50%{transform:translateY(-4px)}}
-@media(max-width:800px){body:before,body:after{display:none}.app-shell:before{inset:62px 0 0;background-size:72px 72px;opacity:.3}.topbar:after{left:16px;right:16px}.page-panel:before{right:16px;top:60px;font-size:7px}.section-body:before{display:none}.reactor-wrap:before,.reactor-wrap:after{display:none}.hero-copy:before{top:-18px}.hero-meta:before{top:-14px}.content-section h2:after,.contact-section h2:after{margin-top:14px}.project-card:after{display:none}.page-nav-item.active:after{left:4px;right:4px}}
+@media(max-width:800px){body:before,body:after{display:none}.app-shell:before{inset:62px 0 0;background-size:72px 72px;opacity:.3}.topbar:after{left:16px;right:16px}.page-panel:before{right:16px;top:60px;font-size:7px}.section-body:before{display:none}.reactor-wrap:before,.reactor-wrap:after{display:none}.hero-copy:before{top:-18px}.hero-meta:before{top:-14px}.content-section h2:after,.contact-section h2:after{margin-top:14px}.project-card:after{display:none}.page-nav-item.active:after{left:4px;right:4px}.atlas-reader{right:16px;bottom:16px;left:16px;width:auto}.atlas-command-panel:before{position:static;display:block;margin-bottom:9px}.atlas-command-form{display:grid;grid-template-columns:1fr}.atlas-command-form button{width:100%}}
 @media(prefers-reduced-motion:reduce){.reactor{animation:none}.page-nav-item.active:after{animation:none}}

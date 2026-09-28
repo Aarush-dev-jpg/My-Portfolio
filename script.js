@@ -1,5 +1,5 @@
 const bootStatus = document.querySelector('#bootStatus');
-const bootMessages = ['CALIBRATING INTERFACE...', 'LOADING PERSONALITY MODULE...', 'MAPPING PROJECT NODES...', 'JARVIS CORE READY.'];
+const bootMessages = ['CALIBRATING INTERFACE...', 'LOADING PERSONALITY MODULE...', 'MAPPING PROJECT NODES...', 'ATLAS CORE READY.'];
 let messageIndex = 0;
 const messageTimer = setInterval(() => {
   messageIndex += 1;
@@ -39,7 +39,7 @@ soundToggle.addEventListener('click', () => {
   if (audioEnabled) {
     playTone(440, 0.12);
     setTimeout(() => playTone(660, 0.16), 90);
-    showToast('JARVIS AUDIO LINK ESTABLISHED');
+    showToast('ATLAS AUDIO LINK ESTABLISHED');
   }
 });
 
@@ -286,25 +286,73 @@ if (identityWrap && identityReadout) {
   identityObserver.observe(identityWrap);
 }
 
-const reader = document.querySelector('#jarvisReader');
+const reader = document.querySelector('#atlasReader');
 const readerState = document.querySelector('#readerState');
 const selectionPopover = document.querySelector('#selectionPopover');
 const readSelectionButton = document.querySelector('#readSelection');
 const readerPause = document.querySelector('#readerPause');
 const readerStop = document.querySelector('#readerStop');
+const atlasWelcome = document.querySelector('#atlasWelcome');
 let selectedText = '';
 let currentSpeech;
 let preferredVoice;
 
-function loadJarvisVoice() {
+function getAtlasGreeting() {
+  const hour = new Date().getHours();
+  const greeting = hour >= 5 && hour < 12
+    ? 'Good morning'
+    : hour >= 12 && hour < 17
+      ? 'Good afternoon'
+      : hour >= 17 && hour < 21
+        ? 'Good evening'
+        : 'Good evening';
+  return `${greeting}. I am ATLAS, Aarush's personal AI interface. How may I assist you?`;
+}
+
+function updateAtlasGreeting() {
+  if (atlasWelcome) atlasWelcome.textContent = getAtlasGreeting();
+}
+
+function scheduleAtlasGreetingUpdate() {
+  const now = new Date();
+  const nextHour = new Date(now);
+  nextHour.setHours(now.getHours() + 1, 0, 0, 0);
+  window.setTimeout(() => {
+    updateAtlasGreeting();
+    scheduleAtlasGreetingUpdate();
+  }, nextHour.getTime() - now.getTime());
+}
+
+updateAtlasGreeting();
+scheduleAtlasGreetingUpdate();
+
+function loadAtlasVoice() {
   const voices = window.speechSynthesis.getVoices();
-  preferredVoice = voices.find((voice) => /en-GB/i.test(voice.lang) && /male|daniel|george/i.test(voice.name))
+  const femaleVoice = /female|samantha|victoria|hazel|zira|susan|sara|aria|jenny|libby|google uk english female/i;
+  preferredVoice = voices.find((voice) => /en-GB/i.test(voice.lang) && femaleVoice.test(voice.name))
+    || voices.find((voice) => /en-US/i.test(voice.lang) && femaleVoice.test(voice.name))
+    || voices.find((voice) => femaleVoice.test(voice.name))
     || voices.find((voice) => /en-GB/i.test(voice.lang))
     || voices.find((voice) => /en-US/i.test(voice.lang));
 }
 
-loadJarvisVoice();
-window.speechSynthesis.addEventListener('voiceschanged', loadJarvisVoice);
+function speakAtlasWelcome() {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const welcome = new SpeechSynthesisUtterance(getAtlasGreeting());
+  welcome.voice = preferredVoice;
+  welcome.lang = preferredVoice?.lang || 'en-GB';
+  welcome.rate = 0.88;
+  welcome.pitch = 1.02;
+  welcome.volume = 1;
+  welcome.onstart = () => showReader('ATLAS WELCOME LINK ACTIVE');
+  welcome.onend = () => reader.classList.remove('active');
+  welcome.onerror = () => reader.classList.remove('active');
+  window.speechSynthesis.speak(welcome);
+}
+
+loadAtlasVoice();
+window.speechSynthesis.addEventListener('voiceschanged', loadAtlasVoice);
 
 function showReader(message) {
   readerState.textContent = message;
@@ -318,7 +366,7 @@ function speakSelection() {
   currentSpeech.voice = preferredVoice;
   currentSpeech.lang = preferredVoice?.lang || 'en-GB';
   currentSpeech.rate = 0.92;
-  currentSpeech.pitch = 0.78;
+  currentSpeech.pitch = 0.96;
   currentSpeech.volume = 1;
   currentSpeech.onstart = () => showReader('READING SELECTED DATA');
   currentSpeech.onend = () => {
@@ -375,6 +423,10 @@ const gameTimer = document.querySelector('#gameTimer');
 const gameMessage = document.querySelector('#gameMessage');
 const gameStart = document.querySelector('#gameStart');
 const gameReset = document.querySelector('#gameReset');
+const atlasCommandForm = document.querySelector('#atlasCommandForm');
+const atlasCommand = document.querySelector('#atlasCommand');
+const atlasResponse = document.querySelector('#atlasResponse');
+const atlasConversation = document.querySelector('#atlasConversation');
 let gameRunning = false;
 let score = 0;
 let timeLeft = 30;
@@ -382,6 +434,67 @@ let health = 100;
 let spawnTimer;
 let enemyTimer;
 let countdownTimer;
+
+if (atlasCommandForm && atlasCommand && atlasResponse) {
+  const atlasKnowledge = {
+    identity: 'I am ATLAS, Aarush\'s personal AI interface. Aarush R P is a B.Tech student and aspiring web developer based in Kerala, India.',
+    skills: 'Aarush works with HTML, CSS, JavaScript, Python, REST APIs, OpenAPI, AI integration, prompt engineering, debugging, Git, GitHub, Vercel, n8n, Node-RED, and ThingsBoard.',
+    projects: 'The active project nodes are NAMMAL, an AI community platform; Recipe AI, an ingredient-aware food discovery tool; an ongoing mobile e-commerce app; and CAMPKART, a college marketplace.',
+    contact: 'You can contact Aarush at rpaarush@gmail.com. His LinkedIn and GitHub links are available in the Contact zone.',
+    availability: 'Aarush is available for collaboration and is always learning.',
+    education: 'Aarush is a B.Tech student exploring practical software, intelligent tools, responsive interfaces, REST APIs, and automation.',
+  };
+
+  function getAtlasResponse(command) {
+    if (/\b(hi|hello|hey|good morning|good afternoon|good evening)\b/.test(command)) return `${getAtlasGreeting()} I am ready to help.`;
+    if (/\b(project|projects|work|built|build|portfolio)\b/.test(command)) return atlasKnowledge.projects;
+    if (/\b(skill|stack|technology|technologies|tools|know|code)\b/.test(command)) return atlasKnowledge.skills;
+    if (/\b(contact|email|reach|linkedin|github)\b/.test(command)) return atlasKnowledge.contact;
+    if (/\b(available|hire|collab|collaboration|freelance)\b/.test(command)) return atlasKnowledge.availability;
+    if (/\b(education|study|student|college|degree|btech)\b/.test(command)) return atlasKnowledge.education;
+    if (/\b(who|about|name|aarush|yourself|identity)\b/.test(command)) return atlasKnowledge.identity;
+    if (/\b(help|commands|what can you do)\b/.test(command)) return 'You can ask about Aarush, his skills, projects, education, availability, contact details, or the ATLAS interface.';
+    if (/\b(status|system|diagnostic|online|core)\b/.test(command)) return 'All systems operational. ATLAS core is stable, the audio link is ready, and the portfolio nodes are online.';
+    return 'I can answer questions about Aarush, his skills, projects, education, availability, contact details, and this portfolio. Try asking: What projects has Aarush built?';
+  }
+
+  function speakAtlasResponse(response) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const speech = new SpeechSynthesisUtterance(response);
+    speech.voice = preferredVoice;
+    speech.lang = preferredVoice?.lang || 'en-GB';
+    speech.rate = 0.9;
+    speech.pitch = 1.02;
+    speech.volume = 1;
+    speech.onstart = () => showReader('ATLAS RESPONDING');
+    speech.onend = () => reader.classList.remove('active');
+    speech.onerror = () => reader.classList.remove('active');
+    window.speechSynthesis.speak(speech);
+  }
+
+  function addAtlasMessage(text, type) {
+    if (!atlasConversation) return;
+    const message = document.createElement('div');
+    message.className = `atlas-message atlas-message-${type}`;
+    message.textContent = text;
+    atlasConversation.appendChild(message);
+    atlasConversation.scrollTop = atlasConversation.scrollHeight;
+  }
+
+  atlasCommandForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const command = atlasCommand.value.trim().toLowerCase();
+    if (!command) return;
+    const response = getAtlasResponse(command);
+    addAtlasMessage(atlasCommand.value.trim(), 'user');
+    addAtlasMessage(response, 'atlas');
+    atlasResponse.textContent = response;
+    atlasCommand.value = '';
+    playTone(660, 0.1, 'triangle');
+    speakAtlasResponse(response);
+  });
+}
 
 function updateGameHud() {
   if (gameScore) gameScore.textContent = String(score);
@@ -479,7 +592,7 @@ function endGame() {
         : 'SIMULATION PARTIAL // MORE DATA NEEDED';
 
   if (gameMessage) gameMessage.textContent = verdict;
-  showToast(score >= 180 ? 'JARVIS SIMULATION SUCCESS' : 'SIMULATION COMPLETE');
+  showToast(score >= 180 ? 'ATLAS SIMULATION SUCCESS' : 'SIMULATION COMPLETE');
   playTone(health <= 0 ? 180 : 760, 0.15, 'sawtooth');
 }
 
@@ -559,6 +672,7 @@ function activatePage(target) {
   marquee.classList.toggle('marquee-hidden', target.id !== 'home');
   pageNav.classList.remove('nav-hidden');
   panelScrollPositions.set(target, target.scrollTop);
+  if (target.id === 'game') speakAtlasWelcome();
 }
 
 document.querySelectorAll('[data-flight]').forEach((link) => {
